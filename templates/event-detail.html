@@ -32,7 +32,28 @@
                 <p class="card-text ">
                     {{ event.description | safe }}
                 </p>
-               
+               {% if user.is_authenticated %}
+                <section class="form-section">
+                    <form method="POST" action="https://formdump.codeinstitute.net/" class="signup-form">
+                        <h2>Book Tour</h2>
+                        <label for="fname">First Name</label>
+                        <input id="fname" name="first_name" type="text" class="text-input" required>
+            
+                        <label for="lname">Last Name</label>
+                        <input id="lname" name="last_name" type="text" class="text-input" required>
+            
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email_address" class="text-input" required>
+                        
+                        <label for="guests">Guests</label>
+                        <input type="number" id="guest" name="guest" class="number-input" min="1" max="10" required>
+
+                        <input class="join-button" type="submit" value="Beer me up!">
+                    </form>
+                </section>
+                {% endif %}
+
+               </form>
             </div>
         </div>
     </div>
